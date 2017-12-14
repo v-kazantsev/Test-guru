@@ -1,9 +1,7 @@
 class User < ApplicationRecord
+  has_and_belongs_to_many :tests
+
   def get_test_by_level(level)
-    test_ids = []
-    test_ids = User.where("tests_users.user_id": :id).pluck("tests_users.test_id")
-    test_ids.map do |ids|
-      Test.select(:title).find_by(id: ids)
-    end
+    User.joins(:tests).where(tests: { level: level })
   end
 end

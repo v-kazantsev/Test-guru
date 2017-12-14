@@ -5,14 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users_list = [
-  ['test_user_1', ''],
-  ['test_user_2', ''],
-  ['test_user_3', '']
+User.create! [
+    { name: 'test_user_1', password: '' },
+    { name: 'test_user_2', password: '' },
+    { name: 'test_user_3', password: '' },
 ]
-users_list.each do |name, password|
-  User.create(name: name, password: password)
-end
 categories_list = %w[
   Программирование
   СУБД

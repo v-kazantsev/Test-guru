@@ -1,8 +1,9 @@
 class Test < ApplicationRecord
+  has_and_belongs_to_many :users
+
   def self.test_by_category(category)
-    Test.order(
-      title: :desc).where(category_id: Category.select(:id).find_by(
-      title: category)).pluck(:title
-      )
+    Test.order_by_title.where(category_id: Category.id_by_name(category)).pluck(:title)
   end
+  
+  scope :order_by_title, -> { order title: :desc }
 end
