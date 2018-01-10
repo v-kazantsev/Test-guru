@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create! [
-    { name: 'test_user_1', password: '' },
-    { name: 'test_user_2', password: '' },
-    { name: 'test_user_3', password: '' },
+    { name: 'test_user_1', email: 'anywhere@gmail.com' },
+    { name: 'test_user_2', email: 'somewhere@gmail.com' },
+    { name: 'test_user_3', email: 'everywhere@gmail.com' },
 ]
 categories_list = %w[
   Программирование
@@ -17,7 +17,7 @@ categories_list = %w[
   Дизайн
 ]
 categories_list.each do |title|
-  Category.create(title: title)
+  Category.create!(title: title)
 end
 tests_list = [
   ['Ruby', 0, 1],
@@ -28,7 +28,7 @@ tests_list = [
   ['MySQL', 1, 1]
 ]
 tests_list.each do |title, level, category_id|
-  Test.create(title: title, level: level, category_id: category_id)
+  Test.create!(title: title, level: level, category_id: category_id)
 end
 questions_list = [
   ['Demonstrate two ways to create an empty hash', 1],
@@ -38,7 +38,7 @@ questions_list = [
   ['Demonstrate how to change the value assoc with a key in a hash', 1]
 ]
 questions_list.each do |body, test_id|
-  Question.create(body: body, test_id: test_id)
+  Question.create!(body: body, test_id: test_id)
 end
 answers_list = [
   ['{}', 1, true],
@@ -55,8 +55,8 @@ answers_list = [
   ['true', 4],
   ['newhash[:one] = "fixed"', 5, true],
   ['newhash[:one] << "fixed"', 5],
-  ['newhash{:one} = "fixed", 5']
+  ['newhash{:one} = "fixed"', 5]
 ]
 answers_list.each do |body, question_id|
-  Answer.create(body: body, question_id: question_id)
+  Answer.create!(body: body, question_id: question_id)
 end
