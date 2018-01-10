@@ -12,8 +12,8 @@ class Test < ApplicationRecord
   # end
 
   scope :order_by_title, -> { order title: :desc }
-  scope :simple, -> { where('level == 0 OR level == 1') }
-  scope :medium, -> { where('level > 1 AND level < 5') }
-  scope :hard, -> { where('level > 4') }
+  scope :simple, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :by_category, -> (category) { where(category_id: Category.id_by_name(category)) }
 end
