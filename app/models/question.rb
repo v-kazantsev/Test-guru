@@ -7,7 +7,7 @@ class Question < ApplicationRecord
   private
 
   def answers_in_range
-    unless (1..4) === self.answers.size
+    if self.answers.size < 1 || self.answers.size > 4
       errors.add(:answers, "Количество ответов должно быть между 1 и 4")
     end
   end
