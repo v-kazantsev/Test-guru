@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
   has_many :tests
-  scope :id_by_name, -> (category_name){ select(:id).where(title: category_name) }
+  validates_presence_of :title
+  default_scope { order title: :asc }
+  
 end
