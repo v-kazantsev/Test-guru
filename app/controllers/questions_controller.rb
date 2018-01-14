@@ -1,19 +1,25 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: [:create, :destroy]
+  before_action :set_test, only: [:index, :create]
 # Модуль 7 Задание 3
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
+#
 
 # Модуль 7 Задание 2 Вопрос 1,5
   def index
-#    @questions = Question.all
-    render plain: "Вопросы к тесту №#{params[:test_id]}"
+  #  render plain: "Вопросы к тесту №#{params[:test_id]}"
+    @questions = @test.questions.all
+    buffer = []
+    @questions.each do |q|
+     buffer << q.body
+    end
+    render plain: buffer
   end
 #
 # Модуль 7 Задание 2 Вопрос 2,5
   def show
-#    @question = Question.find(params[:id])
-    render html: "<h2>Вопрос №#{params[:id]}</h2>".html_safe
+    @test = Test.find(1)
+    @question = @test.questions.find(params[:id])
+    render html: "<h2>#{@question.body}</h2>".html_safe
   end
 #
 # Модуль 7 Задание 2 Вопрос 3
@@ -28,7 +34,8 @@ class QuestionsController < ApplicationController
 #
 # Модуль 7 Задание 2 Вопрос 4
   def destroy
-    @cquestion = @test.questions.find(params[:id])
+    @test = Test.find(1)
+    @question = @test.questions.find(params[:id])
     @question.destroy
     redirect_to @test, notice: "Вопрос удален"
   end
@@ -43,10 +50,5 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:body)
   end
-
-  def rescue_with_question_not_found
-    render plain: 'Вопрос не найден'
-  end
-
 
 end
