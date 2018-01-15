@@ -1,0 +1,20 @@
+<h2>Редактировать тест</h2>
+<%= form_with model: @test, local: true do |f| %>
+  <%= render 'shared/errors', resource: @test %>
+  <p>
+    <%= f.label :Название %><br>
+    <%= f.text_field :title %>
+  </p><br>
+  <p>
+    <%= f.label :Уровень %><br>
+    <%= f.number_field :level %>
+  </p><br>
+  <p>
+    <%= f.label :Категория %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :title, prompt: false %>
+  </p>
+
+  <input type="submit" value="Редактировать">
+
+<% end %>
+<p><%= link_to 'Назад', root_path %>

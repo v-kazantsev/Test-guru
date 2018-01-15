@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
+  before_action :set_title
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
+  #
+  # private
+  #
+  # def rescue_with_record_not_found
+  #   render plain: 'Запись не найдена'
+  # end
 
-  private
-
-  def rescue_with_record_not_found
-    render plain: 'Запись не найдена'
+  def set_title
+    @page_title = "Test Guru"
   end
-
 end

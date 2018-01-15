@@ -1,0 +1,27 @@
+<h2><%= "Тест №#{params[:id]}" %></h2>
+<%= "Уровень: #{@test.level}" %>
+
+<% if @test.questions.count > 0 %>
+<h3><%= "Вопросы к тесту" %></h3>
+<table>
+  <tr>
+    <th>Название вопроса</th>
+    <th colspan = "2"></th>
+  </tr>
+  <% @test.questions.each do |question| %>
+    <tr>
+      <td><%= question.body %></td>
+      <td><%= link_to 'Редактировать', edit_question_path(question) %></td>
+      <td><%= link_to 'Удалить',
+                      question_path(question),
+                      method: :delete,
+                      data: { confirm: 'Удалить вопрос?'} %></td>
+    </tr>
+  <% end %>
+</table>
+<% else %>
+<h3><%= 'В тесте пока нет вопросов. Вы можете создать вопрос при помощи формы' %></h3>
+<% end %>
+<br>
+<%= render 'new_question_form' %>
+<p><%= link_to "К списку тестов", root_path %>
