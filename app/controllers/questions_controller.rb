@@ -7,12 +7,9 @@ class QuestionsController < ApplicationController
 # Модуль 7 Задание 2 Вопрос 1,5
   def index
   #  render plain: "Вопросы к тесту №#{params[:test_id]}"
-    @questions = @test.questions.all
-    buffer = []
-    @questions.each do |q|
-     buffer << q.body
-    end
-    render plain: buffer
+    @questions = @test.questions.all.pluck(:body)
+
+    render plain: @questions
   end
 #
 # Модуль 7 Задание 2 Вопрос 2,5
