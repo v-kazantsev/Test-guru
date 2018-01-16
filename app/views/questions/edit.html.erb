@@ -1,2 +1,4 @@
 <h2>Редактировать вопрос</h2>
+<%= content_for :page_title, set_title(@question) %>
 <%= render 'edit_form' %>
+<%= link_to 'Назад', @question.test %>

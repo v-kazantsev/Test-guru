@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @page_title %></title>
+    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+    <p id='<%= key %>'<%= value %></p>
+    <% end %>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

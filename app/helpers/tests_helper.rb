@@ -1,16 +1,11 @@
 module TestsHelper
 
 def year
-  Time.now.year
+  Time.current.year
 end
 
 def github_url(author, repo)
-  "https://github.com/" + "#{author}" +"/" + "#{repo}"
+  "<a href='https://github.com/#{author}/#{repo}' target='blank'>Проект Тест Гуру</a>".html_safe
 end
-
-def school_url
-  "http://thinknetica.com"
-end
-
 
 end

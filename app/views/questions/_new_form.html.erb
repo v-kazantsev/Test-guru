@@ -1,0 +1,9 @@
+<%= form_with model: [@test, @question], local: true do |f| %>
+  <%= render 'shared/errors', resource: @question %>
+
+  <p>
+    <%= f.label :"Новый вопрос" %><br>
+    <%= f.text_area :body %>
+  </p>
+  <input type="submit" value="Создать">
+<% end %>

@@ -1,30 +1,19 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: [:index, :create]
   before_action :set_question, only: [:destroy, :edit, :update]
-# Модуль 7 Задание 3
+  before_action :set_test, only: [:create, :new]
 
-#
+  def new
 
-# Модуль 7 Задание 2 Вопрос 1,5
-  def index
-    render plain: "Вопросы к тесту №#{params[:test_id]}"
-    @questions = @test.questions.all.pluck(:body)
+    @question = Question.new
   end
-#
-# Модуль 7 Задание 2 Вопрос 2,5
-  def show
-    @test = Test.find(1)
-    @question = @test.questions.find(params[:id])
-    render html: "<h2>#{@question.body}</h2>".html_safe
-  end
-#
 # Модуль 7 Задание 2 Вопрос 3
   def create
+
     @question = @test.questions.new(question_params)
     if @question.save
       redirect_to @test, notice: "Вопрос создан"
     else
-      redirect_to @test, alert: "Что-то не так"
+      render :new, alert: "Что-то не так"
     end
   end
 #
@@ -49,11 +38,11 @@ class QuestionsController < ApplicationController
   def set_question
     @question = Question.find(params[:id])
   end
-# Модуль 7 Задание 2 Вопрос 6
+
   def set_test
     @test = Test.find(params[:test_id])
   end
-#
+
   def question_params
     params.require(:question).permit(:body)
   end

@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def question_header(test)
-    " #{test.title} Question"
+  def page_title
+    content_for(:page_title) || "Проект Тест Гуру"
   end
 end

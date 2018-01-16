@@ -8,20 +8,12 @@
     <th>Название вопроса</th>
     <th colspan = "2"></th>
   </tr>
-  <% @test.questions.each do |question| %>
-    <tr>
-      <td><%= question.body %></td>
-      <td><%= link_to 'Редактировать', edit_question_path(question) %></td>
-      <td><%= link_to 'Удалить',
-                      question_path(question),
-                      method: :delete,
-                      data: { confirm: 'Удалить вопрос?'} %></td>
-    </tr>
-  <% end %>
+
+  <%= render @test.questions %>
 </table>
 <% else %>
 <h3><%= 'В тесте пока нет вопросов. Вы можете создать вопрос при помощи формы' %></h3>
 <% end %>
 <br>
-<%= render 'new_question_form' %>
+<%= link_to 'Создать вопрос', new_test_question_path(@test) %>
 <p><%= link_to "К списку тестов", root_path %>

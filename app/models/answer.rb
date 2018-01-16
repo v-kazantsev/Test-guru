@@ -4,6 +4,7 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
   validate :too_many
   def too_many
-    errors.add(:question, 'Too many answers') if question.answers.count > 4
+    errors.add(:question, 'Too many answers') if self.question.answers.count > 3
   end
+
 end
