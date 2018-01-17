@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   def new
 
-    @question = Question.new
+    @question = @test.questions.new
   end
 # Модуль 7 Задание 2 Вопрос 3
   def create

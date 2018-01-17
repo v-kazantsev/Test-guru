@@ -1,5 +1,5 @@
 module QuestionsHelper
-  def set_title(question)
+  def action_header(question)
     if question.persisted?
       "Edit #{question.test.title} question"
     else

@@ -2,8 +2,8 @@
   <%= render 'shared/errors', resource: @question %>
 
   <p>
-    <%= f.label :"Новый вопрос" %><br>
+    <%= f.label :Вопрос %><br>
     <%= f.text_area :body %>
   </p>
-  <input type="submit" value="Создать">
+  <%= f.submit %>
 <% end %>

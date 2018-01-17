@@ -10,7 +10,8 @@
 
   <body>
     <% flash.each do |key, value| %>
-    <p id='<%= key %>'<%= value %></p>
+
+    <%= tag.p value, id: key %>
     <% end %>
 
     <%= yield %>

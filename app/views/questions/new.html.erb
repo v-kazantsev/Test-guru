@@ -1,4 +1,4 @@
-<h2>Создать новый вопрос</h2>
-<%= content_for :page_title, set_title(@question) %>
-<%= render 'new_form' %>
+<%= tag.h2 action_header(@question) %>
+
+<%= render 'form' %>
 <%= link_to 'Назад', @test %>
