@@ -1,0 +1,19 @@
+<h2><%= "Тест №#{params[:id]}" %></h2>
+<%= "Уровень: #{@test.level}" %>
+
+<% if @test.questions.count > 0 %>
+<h3><%= "Вопросы к тесту" %></h3>
+<table>
+  <tr>
+    <th>Название вопроса</th>
+    <th colspan = "2"></th>
+  </tr>
+
+  <%= render @test.questions %>
+</table>
+<% else %>
+<h3><%= 'В тесте пока нет вопросов. Вы можете создать вопрос при помощи формы' %></h3>
+<% end %>
+<br>
+<%= link_to 'Создать вопрос', new_test_question_path(@test) %>
+<p><%= link_to "К списку тестов", root_path %>
