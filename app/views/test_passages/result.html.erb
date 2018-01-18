@@ -1,0 +1,10 @@
+<h2>Результаты теста</h2>
+<p>Правильных ответов: <%= @test_passage.correct_answers %></p>
+<p>Всего вопросов: <%= @test_passage.test.questions.count %></p>
+
+<p>Результат: <%= tag.span class: set_color(@test_passage) do %>
+<%= number_to_percentage(@test_passage.calc_result, precision: 0) %>
+<% end %>
+</p><br>
+<p><b><%= show_result(@test_passage) %></b></p>
+<%= link_to 'К списку тестов', root_path %>

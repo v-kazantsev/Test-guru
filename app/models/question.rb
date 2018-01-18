@@ -11,5 +11,5 @@ class Question < ApplicationRecord
   #     errors.add(:answers, "Количество ответов должно быть между 1 и 4")
   #   end
   # end
-  
+
 end

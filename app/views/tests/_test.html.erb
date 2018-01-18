@@ -7,4 +7,7 @@
                   test_path(test),
                   method: :delete,
                   data: { confirm: 'Точно удалить? Будут удалены все всязанные с тестом вопросы'} %>
+  <% if test.questions.count > 0 %>
+  <td><%= button_to 'Начать', start_test_path(test) %></td>
+  <% end %>
 </tr>
