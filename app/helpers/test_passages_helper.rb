@@ -1,16 +1,12 @@
 module TestPassagesHelper
-  def show_result(test_passage)
-    if test_passage.calc_result < 85.0
-      'Вы не прошли тест'
+  def test_passage_result(test_passage)
+    if test_passage.result < 85.0
+      color = 'red'
     else
-      'Вы упешно прошли тест'
+      color = 'green'
     end
-  end
-  def set_color(test_passage)
-    if test_passage.calc_result < 85.0
-      'not_passed'
-    else
-      'passed'
+    tag.span class: color do
+    number_to_percentage(test_passage.result, precision: 0)
     end
   end
 end
