@@ -4,7 +4,10 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   #before_validation :before_validation_set_first_question, on: :create
-  before_validation :next_question
+  before_validation do
+    puts '*' *50
+    next_question
+   end
 
   def completed?
     current_question.nil?

@@ -12,7 +12,7 @@ end
 def create
   @test = Test.new(test_params)
   if @test.save
-    redirect_to root_path, notice: "Тест успешно создан"
+    redirect_to tests_path, notice: "Тест успешно создан"
   else
     render :new, alert: "Что-то не так"
   end
@@ -34,7 +34,7 @@ end
 
 def destroy
   @test.destroy
-  redirect_to root_path, notice: "Тест удален"
+  redirect_to tests_path, notice: "Тест удален"
 end
 
 def start
