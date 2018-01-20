@@ -2,7 +2,7 @@ class Answer < ApplicationRecord
   validates_presence_of :body
   belongs_to :question
   scope :correct, -> { where(correct: true) }
-  validate :too_many
+  validate :too_many, on: :create
   def too_many
     errors.add(:question, 'Too many answers') if self.question.answers.count > 3
   end

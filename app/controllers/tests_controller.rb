@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: [:show, :edit, :update, :destroy]
+  before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
 
 def index
   @tests = Test.all
@@ -12,7 +12,7 @@ end
 def create
   @test = Test.new(test_params)
   if @test.save
-    redirect_to root_path, notice: "Тест успешно создан"
+    redirect_to tests_path, notice: "Тест успешно создан"
   else
     render :new, alert: "Что-то не так"
   end
@@ -34,7 +34,13 @@ end
 
 def destroy
   @test.destroy
-  redirect_to root_path, notice: "Тест удален"
+  redirect_to tests_path, notice: "Тест удален"
+end
+
+def start
+  @user = User.first
+  @user.tests.push(@test)
+  redirect_to @user.test_passage(@test)
 end
 
 

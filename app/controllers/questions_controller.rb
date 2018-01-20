@@ -1,9 +1,11 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:destroy, :edit, :update]
+  before_action :set_question, only: [:destroy, :edit, :update, :show]
   before_action :set_test, only: [:create, :new]
 
-  def new
+  def show
+  end
 
+  def new
     @question = @test.questions.new
   end
 # Модуль 7 Задание 2 Вопрос 3
