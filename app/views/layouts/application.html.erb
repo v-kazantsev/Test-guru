@@ -9,12 +9,17 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
 
-    <%= tag.p value, id: key %>
+    <%= render 'shared/links' %>
+
+    <% if logged_in? %>
+    <p class="nav user">Welcome, <%= current_user.email %></p>
     <% end %>
 
+    <%= flash_helper(flash) %>
+
     <%= yield %>
+
     <%= render 'layouts/footer' %>
   </body>
 </html>
