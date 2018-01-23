@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
 
 
@@ -40,9 +40,8 @@ def destroy
 end
 
 def start
-  @user = current_user
-  @user.tests.push(@test)
-  redirect_to @user.test_passage(@test)
+  current_user.tests.push(@test)
+  redirect_to current_user.test_passage(@test)
 end
 
 

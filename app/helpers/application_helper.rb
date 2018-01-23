@@ -4,10 +4,11 @@ module ApplicationHelper
   end
 
   def flash_helper(flash)
-    if flash[:alert]
-      tag.p flash [:alert]
-    elsif flash [:notice]
-      tag.p flash [:notice]
+    tag.div do
+      flash.map do |key, value|
+        tag.p value, id: key
+      end.join.html_safe
     end
   end
+
 end

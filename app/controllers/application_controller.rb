@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_cookie
+  before_action :set_previous_url
   before_action :authenticate_user!
 
   helper_method :current_user, :logged_in?, :original_url
 
-  def set_cookie
+  def set_previous_url
     cookies[:previous_url] = request.original_url
   end
 

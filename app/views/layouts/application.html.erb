@@ -10,13 +10,11 @@
 
   <body>
 
-    <%= render 'shared/links' %>
+    <%= render 'shared/nav_links' %>
 
-    <% if logged_in? %>
-    <p class="nav user">Welcome, <%= current_user.email %></p>
-    <% end %>
 
     <%= flash_helper(flash) %>
+  
 
     <%= yield %>
 
