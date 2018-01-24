@@ -1,31 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_previous_url
+
   before_action :authenticate_user!
 
-  helper_method :current_user, :logged_in?, :original_url
+  include PreviousUrl
+  include DeviseWhitelist
+  include Welcome
 
-  def set_previous_url
-    cookies[:previous_url] = request.original_url
+  def after_sign_in_path_for(resource)
+    admin_root_path
   end
-
-  private
-  def authenticate_user!
-    unless current_user
-      redirect_to login_path
-    end
-  end
-
-  def original_url
-    base_url + original_fullpath
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
-  end
-
 end

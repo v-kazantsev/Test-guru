@@ -4,7 +4,8 @@
     <th>Название</th>
     <th>Уровень</th>
     <th>Вопросов</th>
-    <th></th>
+    <th colspan = "3"></th>
   </tr>
   <%= render @tests %>
 </table>
+<p><%= link_to 'Создать тест', new_admin_test_path %></p>

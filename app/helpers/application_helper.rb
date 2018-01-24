@@ -4,11 +4,13 @@ module ApplicationHelper
   end
 
   def flash_helper(flash)
-    tag.div do
-      flash.map do |key, value|
-        tag.p value, id: key
-      end.join.html_safe
+
+      safe_join(
+        flash.map do |key, value|
+          tag.div value, class: "alert alert-#{key}"
+        end
+        )
     end
-  end
+
 
 end
