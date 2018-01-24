@@ -1,0 +1,9 @@
+<%= link_to 'Project Test-Guru', root_path %> |
+<%= link_to 'Signup', signup_path %> | 
+<% if logged_in? %>
+<%= link_to 'Log out', logout_path, method: :delete %>
+<p class="nav user">Welcome, <%= current_user.email %></p>
+<% else %>
+<%= link_to 'Log in', login_path %>
+<% end %>
+<br>

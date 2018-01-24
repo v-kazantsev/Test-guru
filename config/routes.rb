@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 root to: 'tests#index'
 
   resources :tests do
@@ -16,4 +17,9 @@ root to: 'tests#index'
     end
   end
 
+  resources :users, only: [:create]
+  get 'signup', to: 'users#new'
+  resources :sessions, only: [:create, :destroy]
+  get 'login', to: 'sessions#new'
+  delete 'logout', to: 'sessions#destroy'
 end
