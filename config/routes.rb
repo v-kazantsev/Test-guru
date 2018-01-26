@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 root to: 'tests#index'
-  devise_for :users, path: '', path_names: { sign_in: :login, sign_out: :logout }
+  devise_for :users, path: '', path_names: { sign_in: :login, sign_out: :logout },
+    controllers: { sessions: 'session'}
 
     namespace :admin do
     root to: 'tests#index'

@@ -12,9 +12,8 @@ def new
 end
 
 def create
-  @test = Test.new(test_params)
+  @test = current_user.created_tests.new(test_params)
   if @test.save
-    @test.author = current_user
     redirect_to admin_tests_path, notice: "Тест успешно создан"
   else
     render :new, alert: "Что-то не так"

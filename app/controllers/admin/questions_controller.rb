@@ -10,10 +10,9 @@ class Admin::QuestionsController < Admin::BaseController
   end
 # Модуль 7 Задание 2 Вопрос 3
   def create
-
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to @test, notice: "Вопрос создан"
+      redirect_to admin_tests_path, notice: "Вопрос создан"
     else
       render :new, alert: "Что-то не так"
     end
@@ -22,7 +21,7 @@ class Admin::QuestionsController < Admin::BaseController
 # Модуль 7 Задание 2 Вопрос 4
   def destroy
     @question.destroy
-    redirect_to @question.test, notice: "Вопрос удален"
+    redirect_to admin_tests_path, notice: "Вопрос удален"
   end
 #
   def edit
@@ -30,7 +29,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
-      redirect_to @question.test, notice: "Вопрос отредактирован"
+      redirect_to admin_tests_path, notice: "Вопрос отредактирован"
     else
       render :edit, alert: "Что-то не так"
     end

@@ -15,7 +15,7 @@ class Admin::AnswersController < Admin::BaseController
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to @answer, notice: "Ответ создан"
+      redirect_to admin_answer_path(@answer), notice: "Ответ создан"
     else
       render :new
     end
@@ -23,7 +23,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, notice: "Ответ отредактирован"
+      redirect_to admin_answer_path(@answer), notice: "Ответ отредактирован"
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question
+    redirect_to admin_tests_path
   end
 
   private

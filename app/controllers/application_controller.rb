@@ -5,9 +5,16 @@ class ApplicationController < ActionController::Base
 
   include PreviousUrl
   include DeviseWhitelist
-  include Welcome
+
+  def current_user_admin?
+    current_user.is_a?(Admin)
+  end
 
   def after_sign_in_path_for(resource)
-    admin_root_path
+    if current_user_admin?
+      admin_root_path
+    else
+      root_path
+    end
   end
 end

@@ -5,12 +5,11 @@ module PreviousUrl
     before_action :set_previous_url
 
     def set_previous_url
-      cookies[:previous_url] = request.original_url
+      cookies[:previous_url] = request.fullpath
     end
 
-    def original_url
-      base_url + original_fullpath
-    end
-
+    # def original_url
+    #   base_url + original_fullpath
+    # end
   end
 end
