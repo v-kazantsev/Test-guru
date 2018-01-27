@@ -1,0 +1,6 @@
+<p><%= @answer.question.body %><br>
+<p><%= @answer.body %></p>
+<p>Correct?<p>
+<p><%= @answer.correct %></p>
+<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
+<%= link_to 'Back', admin_question_path(@answer.question) %>

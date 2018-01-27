@@ -1,13 +1,10 @@
 <tr>
-  <td><%= link_to test.title, test_path(test) %></td>
+  <td><%= test.title %></td>
   <td><%= test.level %></td>
   <td><%= test.questions.count %></td>
-  <td><%= link_to 'Редактировать', edit_test_path(test) %>
-  <td><%= link_to 'Удалить',
-                  test_path(test),
-                  method: :delete,
-                  data: { confirm: 'Точно удалить? Будут удалены все всязанные с тестом вопросы'} %>
+  <td>
   <% if test.questions.count > 0 %>
-  <td><%= button_to 'Начать', start_test_path(test) %></td>
+  <%= button_to 'Начать', start_test_path(test) %>
   <% end %>
+  </td>
 </tr>
