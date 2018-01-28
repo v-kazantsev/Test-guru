@@ -11,10 +11,10 @@ User.create! [
     { name: 'test_user_3', email: 'everywhere@gmail.com' },
 ]
 categories_list = %w[
-  Программирование
-  СУБД
-  Администрирование
-  Дизайн
+  Programming
+  Database
+  Administrating
+  Frontend
 ]
 categories_list.each do |title|
   Category.create!(title: title)
