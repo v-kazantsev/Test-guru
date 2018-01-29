@@ -1,6 +1,7 @@
-<h2>Passing the <%= @test_passage.test.title %> Test
-  (Question No <%= @test_passage.current_question_id %>
-  out of <%= @test_passage.test.questions.count %>)</h2>
+<h2><%= t('.pass', title: @test_passage.test.title) %>
+  <!-- (Question No <%= @test_passage.current_question_id %> -->
+  (<%= t('.quest', question_id: @test_passage.current_question_id)  %>
+  <%= @test_passage.test.questions.count %>)</h2>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
@@ -13,8 +14,8 @@
     <%= b.label %>
   </p>
   <% end %>
-  <p><%= f.submit 'Next' %></p>
+  <p><%= f.submit t('.next'), class: "btn btn-primary btn-lg" %></p>
 <% end %>
 
 
-<p><%= link_to 'К списку тестов', tests_path %></p>
+<p><%= link_to t('.list'), tests_path %></p>

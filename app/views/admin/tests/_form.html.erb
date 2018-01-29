@@ -1,16 +1,16 @@
 <%= form_with model: [:admin, @test], local: true do |f| %>
   <%= render 'shared/errors', resource: @test %>
   <div class="form-group">
-    <%= f.label :Название %><br>
+    <%= f.label :title %><br>
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :Уровень %><br>
+    <%= f.label :level %><br>
     <%= f.number_field :level, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :Категория %><br>
-    <%= f.collection_select :category_id, Category.all, :id, :title, prompt: false %>
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :translated_name, prompt: t('.prompt') %>
   </div>
 
   <%= f.submit class: "btn btn-primary btn-lg" %>

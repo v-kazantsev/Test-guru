@@ -21,7 +21,7 @@ class Admin::QuestionsController < Admin::BaseController
 # Модуль 7 Задание 2 Вопрос 4
   def destroy
     @question.destroy
-    redirect_to admin_tests_path, notice: "Вопрос удален"
+    redirect_to [:admin, @question.test], notice: "Вопрос удален"
   end
 #
   def edit
