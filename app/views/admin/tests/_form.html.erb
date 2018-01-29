@@ -10,7 +10,7 @@
   </div>
   <div class="form-group">
     <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.all, :id, :translated_name, prompt: false %>
+    <%= f.collection_select :category_id, Category.all, :id, :translated_name, prompt: t('.prompt') %>
   </div>
 
   <%= f.submit class: "btn btn-primary btn-lg" %>

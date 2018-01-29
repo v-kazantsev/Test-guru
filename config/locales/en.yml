@@ -1,32 +1,34 @@
 ---
 en:
-  category:
-    Programming: Programming
-    Administrating: Administaring
-    Frontend: Frontend
-    Database: Database
   admin:
     tests:
-      new:
-        header: Create New Test
-        back: Back
       create:
         fail: Something went wrong
         success: Test was created
       destroy:
         success: Test deleted
+      form:
+        prompt: Select a category
       index:
         header: Tricky Tests
         level: Level
         new: Create Test
         qtty: Questions
         title: Title
+      new:
+        back: Back
+        header: Create New Test
       test:
         delete: Delete
         edit: Edit
       update:
         fail: Something went wrong
         success: Test has been updated
+  category:
+    Administrating: Administaring
+    Database: Database
+    Frontend: Frontend
+    Programming: Programming
   helpers:
     label:
       test:
@@ -54,8 +56,8 @@ en:
     show:
       list: To Tests
       next: Next
-      pass: "Passing test %{title}"
-      quest: "Question %{question_id} out of"
+      pass: Passing test %{title}
+      quest: Question %{question_id} out of
   tests:
     index:
       header: Tricky Tests

@@ -1,38 +1,36 @@
 ---
 ru:
-  category:
-    Programming: Программирование
-    Administrating: Администрирование
-    Frontend: Дизайн
-    Database: СУБД
   admin:
     tests:
-      new:
-        header: Создать тест
-        back: Назад
       create:
         fail: Что-то не так
         success: Создан новый тест
       destroy:
         success: Тест удален
+      form:
+        prompt: Выбприте категорию
       index:
         header: Доступные тесты
         level: Уровень
         new: Создать тест
         qtty: Вопросов
         title: Название
+      new:
+        back: Назад
+        header: Создать тест
+        prompt: Выберите категорию
       test:
         delete: Удалить
         edit: Редактировать
       update:
         fail: Что-то не так
         success: Тест обновлен
+  category:
+    Administrating: Администрирование
+    Database: СУБД
+    Frontend: Дизайн
+    Programming: Программирование
   helpers:
-    collection_select:
-      test:
-        new:
-          prompt:
-            admin: Adminisrating
     label:
       test:
         category_id: Категория
@@ -47,6 +45,8 @@ ru:
       test:
         create: Создать тест
         update: Обновить тест
+      test_passages:
+        next: Дальше
   shared:
     nav_links:
       login: Войти
@@ -57,8 +57,8 @@ ru:
     show:
       list: К списку тестов
       next: Дальше
-      pass: "Проходим тест %{title}"
-      quest: "Вопрос %{question_id} из"
+      pass: Проходим тест %{title}
+      quest: Вопрос %{question_id} из
   tests:
     index:
       header: Доступные тесты
