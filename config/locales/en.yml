@@ -1,6 +1,9 @@
 ---
 en:
   admin:
+    nav:
+      project: Project Test Guru
+      logout: Log out
     tests:
       create:
         fail: Something went wrong
