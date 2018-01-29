@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     unless I18n.locale == I18n.default_locale
-      {lang: I18n.locale }
+      { lang: I18n.locale }
     else
       super
     end
@@ -27,9 +27,7 @@ class ApplicationController < ActionController::Base
     if current_user_admin?
       admin_root_path
     elsif cookies[:previous_url].present?
-      cookies[:previous_url]
-    else
-      root_path
+      cookies[:previous_url] || rooth_path
     end
   end
 end
