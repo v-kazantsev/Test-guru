@@ -1,6 +1,9 @@
 ---
 ru:
   admin:
+    nav:
+      project: Проект Тест Гуру
+      logout: Выход
     tests:
       create:
         fail: Что-то не так
@@ -8,7 +11,7 @@ ru:
       destroy:
         success: Тест удален
       form:
-        prompt: Выбприте категорию
+        prompt: Выберите категорию
       index:
         header: Доступные тесты
         level: Уровень
