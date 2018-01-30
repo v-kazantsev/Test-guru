@@ -4,6 +4,7 @@ root to: 'tests#index'
     controllers: { sessions: 'session'}
 
     namespace :admin do
+      resources :gists
     root to: 'tests#index'
     resources :tests do
       resources :questions, shallow: true do
@@ -24,6 +25,7 @@ root to: 'tests#index'
   resources :test_passages, only: [:show, :update] do
     member do
       get :result
+      post :gist
     end
   end
 

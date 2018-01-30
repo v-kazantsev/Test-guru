@@ -1,0 +1,16 @@
+<h2>Список Gists</h2>
+<table class="table table-striped">
+<tr>
+  <th>Вопрос</th>
+  <th>Адрес Gist</th>
+  <th>Email пользователя</th>
+</tr>
+<% @gists.each do |gist| %>
+<tr>
+  <td><%= truncate(gist.question.body, lenth: 25) { link_to 'дальше', admin_gist_path(gist) } %></td>
+  <td><%= link_to gist.gist_url %></td>
+  <td><%= gist.user.email %></td>
+</tr>
+<% end %>
+</table>
+<p><%= link_to 'Назад', admin_root_path %>

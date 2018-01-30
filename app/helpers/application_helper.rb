@@ -7,7 +7,7 @@ module ApplicationHelper
 
       safe_join(
         flash.map do |key, value|
-          tag.div value, class: "alert alert-#{key}"
+          tag.div value.html_safe, class: "alert alert-#{key}"
         end
         )
     end

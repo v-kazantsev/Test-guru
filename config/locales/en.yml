@@ -1,5 +1,6 @@
 ---
 en:
+  description: "A question about %{title} from TestGuru"
   admin:
     nav:
       project: Project Test Guru
@@ -56,6 +57,11 @@ en:
       project: Project Test Guru
       signup: Sign up
   test_passages:
+    result:
+      header: "Test %{title} ended up successfully"
+    gist:
+      success: Gist has been saved
+      failure: Some errors occured during saving gist
     show:
       list: To Tests
       next: Next
