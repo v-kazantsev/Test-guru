@@ -1,0 +1,6 @@
+<tr>
+  <td><%= truncate(gist.question.body, lenth: 25) { link_to 'смотреть вопрос', admin_question_path(gist.question) } %></td>
+  <td><%= link_to "#{gist.gist_url}", "https://api.github.com/gists/#{gist.gist_url}" %></td>
+  <td><%= gist.user.email %></td>
+  <td><%= link_to 'Удалить', admin_gist_path(gist), method: :delete %></td>
+</tr>

@@ -63,6 +63,7 @@ en:
       success: Gist has been saved
       failure: Some errors occured during saving gist
     show:
+      gist: Gist Question
       list: To Tests
       next: Next
       pass: Passing test %{title}

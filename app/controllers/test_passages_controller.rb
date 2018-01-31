@@ -18,14 +18,18 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
-    Gist.create!(
-                gist_url: result[:files][:'testguru-question.txt'][:raw_url],
-                user_id: current_user.id,
-                question_id: @test_passage.current_question_id
-                )
-    flash_options = status == 200 ? { notice: t('.success') } : { alert: t('.failure') }
-    flash[:info] = "#{view_context.link_to 'Your Gist', result[:files][:'testguru-question.txt'][:raw_url]}"
-    redirect_to @test_passage, flash_options
+    if result.nil?
+      flash[:alert] = t('.failure')
+    else
+      @test_passage.current_question.gists.create(gist_url: result.id, user: current_user)
+      # Gist.create!(
+      #             gist_url: result.id,
+      #             user_id: current_user.id,
+      #             question_id: @test_passage.current_question_id
+      #             )
+      flash[:info] = "#{view_context.link_to 'Your Gist', result.html_url, target: '_blank' }"
+    end
+    redirect_to @test_passage
   end
 
   private

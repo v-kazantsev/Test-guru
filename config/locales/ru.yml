@@ -64,6 +64,7 @@ ru:
       success: Gist успешно сохранен
       failure: Во время сохранения gist произошла ошибка
     show:
+      gist: Создать Gist для вопроса
       list: К списку тестов
       next: Дальше
       pass: Проходим тест %{title}

@@ -4,7 +4,7 @@ root to: 'tests#index'
     controllers: { sessions: 'session'}
 
     namespace :admin do
-      resources :gists
+      resources :gists, only: [:index, :destroy]
     root to: 'tests#index'
     resources :tests do
       resources :questions, shallow: true do

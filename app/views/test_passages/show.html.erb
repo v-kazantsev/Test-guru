@@ -1,5 +1,4 @@
 <h2><%= t('.pass', title: @test_passage.test.title) %>
-  <!-- (Question No <%= @test_passage.current_question_id %> -->
   (<%= t('.quest', question_id: @test_passage.current_question_id)  %>
   <%= @test_passage.test.questions.count %>)</h2>
 <p><b>
@@ -14,7 +13,7 @@
     <%= b.label %>
   </p>
   <% end %>
-  <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
+  <p><%= link_to t('.gist'), gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= f.submit t('.next'), class: "btn btn-primary btn-lg" %></p>
 <% end %>
 
