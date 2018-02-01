@@ -1,9 +1,8 @@
 class Admin::GistsController < ApplicationController
+  layout 'admin'
   before_action :set_gist, only: [:destroy]
   def index
     @gists = Gist.all
-  end
-  def show
   end
   def destroy
     @gist.delete
