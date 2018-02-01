@@ -41,6 +41,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'i18n-tasks', '~> 0.9.20'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -58,3 +59,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise-i18n'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap', '~> 4.0'
+gem 'faraday', '~> 0.14.0'
+gem 'octokit', '~> 4.8'

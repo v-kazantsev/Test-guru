@@ -8,4 +8,6 @@
   </tr>
   <%= render @tests %>
 </table>
-<p><%= link_to t('.new'), new_admin_test_path %></p>
+<p><%= link_to t('.new'), new_admin_test_path %>  |
+  <%= link_to 'Показать Gists', admin_gists_path %>
+</p>

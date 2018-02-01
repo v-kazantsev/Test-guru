@@ -1,5 +1,6 @@
 ---
 ru:
+  description: "Вопрос о %{title} от Тест Гуру"
   admin:
     nav:
       project: Проект Тест Гуру
@@ -57,7 +58,13 @@ ru:
       project: Проект Тест Гуру
       signup: Регистрация
   test_passages:
+    result:
+      header: "Тест %{title} успешно завершен"
+    gist:
+      success: Gist успешно сохранен
+      failure: Во время сохранения gist произошла ошибка
     show:
+      gist: Создать Gist для вопроса
       list: К списку тестов
       next: Дальше
       pass: Проходим тест %{title}
