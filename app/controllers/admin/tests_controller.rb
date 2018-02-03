@@ -14,9 +14,9 @@ end
 def create
   @test = current_user.created_tests.new(test_params)
   if @test.save
-    redirect_to admin_tests_path, notice: t.('.success')
+    redirect_to admin_tests_path, notice: t('.success')
   else
-    render :new, alert: t.('fail')
+    render :new, alert: t('fail')
   end
 end
 
@@ -28,15 +28,15 @@ end
 
 def update
   if @test.update(test_params)
-    redirect_to admin_tests_path, notice: t.('.success')
+    redirect_to admin_tests_path, notice: t('.success')
   else
-    render :edit, alert: t.('fail')
+    render :edit, alert: t('fail')
   end
 end
 
 def destroy
   @test.destroy
-  redirect_to admin_tests_path, notice: t.('success')
+  redirect_to admin_tests_path, notice: t('success')
 end
 
 private

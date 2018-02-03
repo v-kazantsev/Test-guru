@@ -18,6 +18,7 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
+    byebug
     if result.nil?
       flash[:alert] = t('.failure')
     else

@@ -2,5 +2,8 @@
   <td><%= truncate(gist.question.body, lenth: 25) { link_to 'смотреть вопрос', admin_question_path(gist.question) } %></td>
   <td><%= link_to "#{gist.gist_url.split('/').last}", gist.gist_url, target: "_blank" %></td>
   <td><%= gist.user.email %></td>
-  <td><%= link_to 'Удалить', admin_gist_path(gist), method: :delete %></td>
+  <td><%= link_to admin_gist_path(gist), method: :delete do %>
+      <i class="fa fa-trash-o fa-2x" aria-hidden="true" style="color: red"></i>
+      <% end %>
+  </td>
 </tr>

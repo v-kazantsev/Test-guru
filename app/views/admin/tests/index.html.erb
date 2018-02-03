@@ -1,7 +1,10 @@
 <h2><%= t('.header') %></h2>
 <table class="table table-striped">
   <tr>
-    <th><%= t('.title') %></th>
+    <th class="sort-by-title pointer"><%= t('.title') %>
+        <i class="fa fa-sort-alpha-asc hide" aria-hidden="true"></i>
+        <i class="fa fa-sort-alpha-desc" aria-hidden="true"></i>
+    </th>
     <th><%= t('.level') %></th>
     <th><%= t('.qtty') %></th>
     <th colspan = "3"></th>

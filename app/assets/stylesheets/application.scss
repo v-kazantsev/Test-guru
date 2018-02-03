@@ -1,5 +1,7 @@
 @import "bootstrap";
 @import "nav";
+@import "font-awesome";
+@import "global";
  .alert-notice {
   @extend .alert-success;
 }
