@@ -6,6 +6,8 @@ ru:
       project: Проект Тест Гуру
       logout: Выход
     tests:
+      form_inline:
+        submit: OK
       create:
         fail: Что-то не так
         success: Создан новый тест
@@ -58,6 +60,9 @@ ru:
       project: Проект Тест Гуру
       signup: Регистрация
   test_passages:
+    test_passage:
+      next: Дальше
+      list: Список тестов
     result:
       header: "Тест %{title} успешно завершен"
     gist:

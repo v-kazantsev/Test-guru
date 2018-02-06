@@ -1,11 +1,16 @@
 <tr>
-  <td><%= link_to test.title, admin_test_path(test) %></td>
-  <td><%= test.level %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= link_to t('.edit'), edit_admin_test_path(test) %>
-  <td><%= link_to admin_test_path(test),#t('.delete'),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?'} do %>
+  <td class="align-middle">
+    <%= link_to test.title, admin_test_path(test), class: "test-title", data: { test_id: test.id } %>
+    <%= render "form_inline", test: test == @test? @test : test %>
+  </td>
+  <td class="align-middle"><%= test.level %></td>
+  <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= link_to t('.edit'), edit_admin_test_path(test),
+                               class: "form-inline-link",
+                               data: { test_id: test.id } %>
+  <td class="align-middle"><%= link_to admin_test_path(test),
+                               method: :delete,
+                               data: { confirm: 'Are you sure?'} do %>
       <i class="fa fa-trash-o fa-2x" aria-hidden="true" style="color: red"></i>
       <% end %>
   </td>

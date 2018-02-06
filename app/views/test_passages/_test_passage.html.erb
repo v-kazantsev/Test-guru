@@ -1,0 +1,16 @@
+<p><b>
+  <%= @test_passage.current_question.body %>
+</b></p>
+<%= form_with url: test_passage_path(@test_passage), remote: true, method: :put do |f| %>
+  <%= f.collection_check_boxes :answer_ids,
+                               @test_passage.current_question.answers,
+                               :id, :body, include_hidden: false do |b| %>
+  <p>
+    <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+    <%= b.label %>
+  </p>
+  <% end %>
+  <p><%= link_to t('.gist'), gist_test_passage_path(@test_passage), method: :post %></p>
+  <p><%= f.submit t('.next'), class: "btn btn-primary btn-lg", id: "btn-progress" %></p>
+<% end %>
+<p><%= link_to t('.list'), tests_path %></p>
