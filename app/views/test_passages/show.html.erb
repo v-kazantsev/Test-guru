@@ -1,21 +1,17 @@
 <h2><%= t('.pass', title: @test_passage.test.title) %>
   (<%= t('.quest', question_id: @test_passage.current_question_id)  %>
   <%= @test_passage.test.questions.count %>)</h2>
-<p><b>
-  <%= @test_passage.current_question.body %>
-</b></p>
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f| %>
-  <%= f.collection_check_boxes :answer_ids,
-                               @test_passage.current_question.answers,
-                               :id, :body, include_hidden: false do |b| %>
-  <p>
-    <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-    <%= b.label %>
-  </p>
-  <% end %>
-  <p><%= link_to t('.gist'), gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= f.submit t('.next'), class: "btn btn-primary btn-lg" %></p>
-<% end %>
-
-
-<p><%= link_to t('.list'), tests_path %></p>
+  <div class="progress">
+    <%= content_tag :div,
+                    "0%",
+                    class: "progress-bar",
+                    role: "progressbar",
+                    style: "width: 0%",
+                    'aria-valuenow': "0",
+                    'aria-valuemin': "0",
+                    'aria-valuemax': "100",
+                    data: { count: @test_passage.test.questions.count} %>
+  </div>
+  <div id="test-passage">
+  <%= render 'test_passage' %>
+</div>

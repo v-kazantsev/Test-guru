@@ -6,6 +6,8 @@ en:
       project: Project Test Guru
       logout: Log out
     tests:
+      form_inline:
+        submit: OK
       create:
         fail: Something went wrong
         success: Test was created
@@ -57,6 +59,9 @@ en:
       project: Project Test Guru
       signup: Sign up
   test_passages:
+    test_passage:
+      next: Next
+      list: Tests list
     result:
       header: "Test %{title} ended up successfully"
     gist:

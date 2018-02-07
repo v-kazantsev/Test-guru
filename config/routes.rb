@@ -7,6 +7,7 @@ root to: 'tests#index'
       resources :gists, only: [:index, :destroy]
     root to: 'tests#index'
     resources :tests do
+      patch :update_inline, on: :member
       resources :questions, shallow: true do
         resources :answers, shallow: true, except: :index
       end

@@ -15,5 +15,6 @@
 <h3><%= 'В тесте пока нет вопросов. Вы можете создать вопрос при помощи формы' %></h3>
 <% end %>
 <br>
-<%= link_to 'Создать вопрос', new_admin_test_question_path(@test) %> | 
+<%= link_to 'Редактировать тест', edit_admin_test_path(@test) %> | 
+<%= link_to 'Создать вопрос', new_admin_test_question_path(@test) %> |
 <%= link_to "К списку тестов", admin_tests_path %>
