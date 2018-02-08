@@ -5,11 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create! [
-    { name: 'test_user_1', email: 'anywhere@gmail.com' },
-    { name: 'test_user_2', email: 'somewhere@gmail.com' },
-    { name: 'test_user_3', email: 'everywhere@gmail.com' },
-]
+
 categories_list = %w[
   Programming
   Database

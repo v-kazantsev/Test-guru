@@ -6,13 +6,11 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-    respond_to do |format|
       if @test_passage.completed?
-        format.html { redirect_to result_test_passage_path(@test_passage) }
+        TestsMailer.completed_test(@test_passage).deliver_now
+        redirect_to result_test_passage_path(@test_passage)
       else
-        format.html { render :show }
-        format.js {}
-      end
+        render :show
     end
   end
 
