@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'pages/feedback'
+  post 'pages/create'
+
 root to: 'tests#index'
   devise_for :users, path: '', path_names: { sign_in: :login, sign_out: :logout },
     controllers: { sessions: 'session'}
