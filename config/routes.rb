@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'pages/feedback'
-  post 'pages/create'
+  post 'pages/create', as: 'feedback'
 
 root to: 'tests#index'
   devise_for :users, path: '', path_names: { sign_in: :login, sign_out: :logout },

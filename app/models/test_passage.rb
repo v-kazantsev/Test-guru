@@ -19,7 +19,7 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_answers +=1 if correct_answer?(answer_ids)
-    #self.current_question = next_question
+    self.update(count: self.count +=1)
     save!
   end
 

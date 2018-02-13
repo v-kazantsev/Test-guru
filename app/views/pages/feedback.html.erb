@@ -1,5 +1,5 @@
 <h2>Feedback</h2>
-<%= form_tag('/pages/create', local: true) do %>
+<%= form_tag(feedback_path, local: true) do %>
   <div><%= text_area_tag 'message_body' %></div>
   <div><%= submit_tag 'Send feedback', class: 'btn btn-primary' %></div>
 <% end %>
