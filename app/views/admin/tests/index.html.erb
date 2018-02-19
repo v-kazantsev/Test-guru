@@ -8,10 +8,12 @@
     </th>
     <th><%= t('.level') %></th>
     <th><%= t('.qtty') %></th>
-    <th colspan = "3"></th>
+    <th>Timer</th>
+    <th colspan="3"></th>
   </tr>
   <%= render @tests %>
 </table>
 <p><%= link_to t('.new'), new_admin_test_path %>  |
-  <%= link_to 'Показать Gists', admin_gists_path %>
+   <%= link_to 'Manage badges', admin_badges_path %> |  
+   <%= link_to 'Показать Gists', admin_gists_path %>
 </p>

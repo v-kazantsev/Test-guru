@@ -5,6 +5,10 @@
   </td>
   <td class="align-middle"><%= test.level %></td>
   <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= link_to edit_admin_test_path(test) do %>
+    <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
+    <% end %>
+  </td>
   <td class="align-middle"><%= link_to t('.edit'), edit_admin_test_path(test),
                                class: "form-inline-link",
                                data: { test_id: test.id } %>

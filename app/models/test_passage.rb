@@ -3,11 +3,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  #before_validation :before_validation_set_first_question, on: :create
-  before_validation do
-    puts '*' *50
-    next_question
-   end
+  before_validation :set_first_question, on: :create
 
   def completed?
     current_question.nil?
@@ -20,10 +16,15 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     self.correct_answers +=1 if correct_answer?(answer_ids)
     self.update(count: self.count +=1)
+    self.current_question = next_question
     save!
   end
 
   private
+
+  def set_first_question
+    self.current_question = test.questions.first if test.present?
+  end
 
   def correct_answer?(answer_ids)
     correct_answers_count = choose_correct_answers.count
@@ -37,8 +38,7 @@ class TestPassage < ApplicationRecord
 
   def next_question
     if test.present?
-      self.current_question_id ||= 1
-      self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first unless self.completed?
+      test.questions.order(:id).where('id > ?', current_question.id).first unless self.completed?
     end
   end
 

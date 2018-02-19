@@ -1,12 +1,14 @@
 <h2><%= t('.pass', title: @test_passage.test.title) %>
   (<%= t('.quest', question_id: @test_passage.count)  %>
   <%= @test_passage.test.questions.count %>)</h2>
+  <%= tag.div id: "clockdiv", data: { length: @test_passage.test.countdown, id: @test_passage.id } %>
 <div class="row">
   <%= content_tag :span, class: "progress-count", data: { count: "#{@test_passage.count}" } do %>
     <% for i in (1..@test_passage.test.questions.count) %>
       <%= i %>
     <% end %>
   <% end %>
+
 </div>
   <div id="test-passage">
   <%= render 'test_passage' %>

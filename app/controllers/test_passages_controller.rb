@@ -1,5 +1,10 @@
 class TestPassagesController < ApplicationController
-  before_action :set_test_passage, only: [:show, :update, :result, :gist]
+  before_action :set_test_passage, only: [:show, :update, :result, :gist, :end_by_timeout]
+
+  def end_by_timeout
+    TestsMailer.completed_test(@test_passage).deliver_now
+    redirect_to result_test_passage_path(@test_passage)
+  end
 
   def show
   end
@@ -19,7 +24,6 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
-    byebug
     if result.nil?
       flash[:alert] = t('.failure')
     else

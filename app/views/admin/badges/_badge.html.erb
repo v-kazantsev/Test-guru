@@ -1,0 +1,8 @@
+<ul class="list-group list-group-flush">
+  <div class="col col-md text-center">
+  <li class="list-group-item"><%= image_tag badge.main_img, alt: badge.name %></li>
+    <%= link_to 'Edit', edit_admin_badge_path(badge) %>  |
+    <%= link_to 'Delete', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?'}  %>
+  <li class="list-group-item"><b><%= badge.name %></b></li>
+</div>
+</ul>

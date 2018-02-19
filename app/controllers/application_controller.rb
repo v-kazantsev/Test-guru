@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_locale
 
-  include PreviousUrl
+  #include PreviousUrl
   include DeviseWhitelist
 
   def default_url_options
@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if current_user_admin?
       admin_root_path
-    elsif cookies[:previous_url].present?
-      cookies[:previous_url] || rooth_path
+    else
+      root_path
     end
   end
 end

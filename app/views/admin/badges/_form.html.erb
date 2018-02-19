@@ -1,0 +1,14 @@
+<%= form_with model: [:admin, @badge], local: true do |f| %>
+  <%= render 'shared/errors', resource: @badge %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.text_area :main_img, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn btn-primary btn-lg" %>
+
+<% end %>
+<br>

@@ -48,7 +48,7 @@ end
 
 private
 def test_params
-  params.require(:test).permit(:title, :level, :category_id)
+  params.require(:test).permit(:title, :level, :category_id, :countdown)
 end
 
 def set_test

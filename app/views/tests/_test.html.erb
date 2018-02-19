@@ -2,6 +2,10 @@
   <td><%= test.title %></td>
   <td><%= test.level %></td>
   <td><%= test.questions.count %></td>
+  <% if test.countdown > 0 %>
+  <td><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
+    <% end %>
+  </td>
   <td>
   <% if test.questions.count > 0 %>
   <%= button_to t('.start'), start_test_path(test), class: "btn btn-primary btn-sm" %>
