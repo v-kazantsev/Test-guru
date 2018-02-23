@@ -20,7 +20,7 @@ function initializeClock(id, endtime){
   var clock = document.getElementById(id);
   var timeinterval = setInterval(function(){
     var t = getTimeRemaining(endtime);
-    clock.innerHTML =
+    clock.textContent =
                       'hours: '+ t.hours + ' ' +
                       'minutes: ' + t.minutes + ' ' +
                       'seconds: ' + t.seconds;

@@ -10,6 +10,8 @@ class User < ApplicationRecord
   #validates_confirmation_of :password
   has_many :test_passages
   has_many :tests, through: :test_passages
+  has_many :achievements
+  has_many :badges, through: :achievements
   has_many :created_tests, class_name: 'Test', foreign_key: :user_id
   has_many :gists
 
