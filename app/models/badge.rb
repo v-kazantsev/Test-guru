@@ -10,7 +10,6 @@ class Badge < ApplicationRecord
   end
 
   def passed_times_rule?(rule_value)
-    byebug
     current_user.tests_passed == rule_value
   end
 

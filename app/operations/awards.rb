@@ -17,5 +17,6 @@ class Awards
   private
   def award!(badge)
     current_user.badges << badge
+    save!
   end
 end
