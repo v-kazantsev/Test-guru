@@ -1,4 +1,5 @@
 class TestPassagesController < ApplicationController
+include TestResult
   before_action :set_test_passage, only: [:show, :update, :result, :gist, :end_by_timeout]
 
   def end_by_timeout
@@ -20,6 +21,8 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+    calculate_tests_passed
+    Awards.new(@test_passage).call if @test_passage.result > 85
   end
 
   def gist

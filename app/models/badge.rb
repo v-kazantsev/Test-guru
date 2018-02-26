@@ -9,4 +9,9 @@ class Badge < ApplicationRecord
     self.main_img ||= Placeholder.image_generator(width: 300, height: 300)
   end
 
+  def passed_times_rule?(rule_value)
+    byebug
+    current_user.tests_passed == rule_value
+  end
+
 end

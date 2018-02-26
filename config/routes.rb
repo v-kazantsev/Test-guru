@@ -20,6 +20,7 @@ root to: 'pages#index'
   end
 
   resources :badges, only: :index
+    get 'badges/user_badges', to: 'badges#user_badges'
 
   resources :tests, only: :index do
     resources :questions, shallow: true do

@@ -1,0 +1,10 @@
+<h2>Мои достижения</h2>
+Тестов пройдено: <%= current_user.tests_passed %>
+<table>
+    <tbody>
+      <tr>
+  <%= render @badges %>
+      </tr>
+    </tbody>
+</table>
+<p><%= link_to "На главную", root_path %></p>
