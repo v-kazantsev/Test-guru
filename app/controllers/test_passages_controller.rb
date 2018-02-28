@@ -20,8 +20,10 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-    current_user.update(tests_passed: current_user.tests_passed += 1) if @test_passage.result > 85
-    Awards.new(@test_passage).call if @test_passage.result > 85
+    if @test_passage.result > 85
+      current_user.update(tests_passed: current_user.tests_passed += 1)
+      Awards.new(@test_passage).call
+    end
   end
 
   def gist

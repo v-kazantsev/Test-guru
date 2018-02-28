@@ -8,8 +8,20 @@
       <%= i %>
     <% end %>
   <% end %>
-
 </div>
   <div id="test-passage">
-  <%= render 'test_passage' %>
+    <!-- Вот такое решение нашел против отключения JS. -->
+    <noscript>
+      <style type="text/css">
+        .pagecontainer {display:none;}
+      </style>
+      <div class=".pagecontainer">
+        <%= render 'test_passage' %>
+      </div>
+      <div>
+      Вы должны включить поддерку JavaScript чтобы продолжить
+      <%= link_to "На главную", root_path %>
+      </div>
+    </noscript>
+
 </div>
