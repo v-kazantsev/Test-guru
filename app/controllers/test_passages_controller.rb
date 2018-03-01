@@ -1,9 +1,24 @@
 class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: [:show, :update, :result, :gist, :end_by_timeout]
+  before_action :timer, only: [:show]
 
-  def end_by_timeout
-    TestsMailer.completed_test(@test_passage).deliver_now
-    redirect_to result_test_passage_path(@test_passage)
+  def timer
+    session[:timer] = nil
+    if @test_passage.test.countdown > 0
+      @timer ||= Thread.new do
+        time = 0
+        seconds = @test_passage.test.countdown
+        while time < seconds
+          session[:timer] = seconds - time
+          if session[:timer] <= 1
+            redirect_to result_test_passage_path(@test_passage)
+          end
+          sleep(1)
+          time += 1
+          render 'timer'
+        end
+      end
+    end
   end
 
   def show
@@ -11,15 +26,17 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-      if @test_passage.completed?
-        TestsMailer.completed_test(@test_passage).deliver_now
-        redirect_to result_test_passage_path(@test_passage)
-      else
-        render :show
+    if @test_passage.completed?
+      TestsMailer.completed_test(@test_passage).deliver_now
+      redirect_to result_test_passage_path(@test_passage)
+    else
+      render :show
     end
   end
 
   def result
+    @timer.kill if @timer
+    session[:timer] = nil
     if @test_passage.result > 85
       current_user.update(tests_passed: current_user.tests_passed += 1)
       Awards.new(@test_passage).call

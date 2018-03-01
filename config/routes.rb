@@ -38,7 +38,5 @@ root to: 'pages#index'
     end
   end
 
-  post '/test_passages/:id', to: 'test_passages#result'
-
   delete 'logout', to: 'sessions#destroy'
 end

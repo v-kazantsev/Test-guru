@@ -1,7 +1,6 @@
 <h2><%= t('.pass', title: @test_passage.test.title) %>
   (<%= t('.quest', question_id: @test_passage.count)  %>
   <%= @test_passage.test.questions.count %>)</h2>
-  <%= tag.div id: "clockdiv", data: { length: @test_passage.test.countdown, id: @test_passage.id } %>
 <div class="row">
   <%= content_tag :span, class: "progress-count", data: { count: "#{@test_passage.count}" } do %>
     <% for i in (1..@test_passage.test.questions.count) %>
@@ -9,19 +8,7 @@
     <% end %>
   <% end %>
 </div>
+<%= render 'timer' %>
   <div id="test-passage">
-    <!-- Вот такое решение нашел против отключения JS. -->
-    <noscript>
-      <style type="text/css">
-        .pagecontainer {display:none;}
-      </style>
-      <div class=".pagecontainer">
-        <%= render 'test_passage' %>
-      </div>
-      <div>
-      Вы должны включить поддерку JavaScript чтобы продолжить
-      <%= link_to "На главную", root_path %>
-      </div>
-    </noscript>
-
-</div>
+    <%= render 'test_passage' %>
+  </div>
